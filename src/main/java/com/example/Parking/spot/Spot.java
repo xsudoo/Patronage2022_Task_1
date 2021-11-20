@@ -6,21 +6,21 @@ import com.example.Parking.reservation.Reservation;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "spot")
+@Table(name = "spots")
 public class Spot {
-    boolean isSpotForDisabled;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int number;
     private int storey;
+    boolean isSpotForDisabled;
     @OneToOne
     private Reservation reservation;
 
     public Spot() {
     }
 
-    public int getId() {
+    int getId() {
         return id;
     }
 
@@ -48,7 +48,7 @@ public class Spot {
         isSpotForDisabled = spotForDisabled;
     }
 
-    public Reservation getReservation() {
+    Reservation getReservation() {
         return reservation;
     }
 
