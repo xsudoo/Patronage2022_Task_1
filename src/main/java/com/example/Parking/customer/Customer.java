@@ -15,7 +15,7 @@ public class Customer {
     private int id;
     @NotBlank(message = "Customer name must be not null and not empty")
     @Size(min = 2, max = 20)
-    @Column(unique = true)
+   // @Column(unique = true)
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Reservation> reservationList;
@@ -25,7 +25,7 @@ public class Customer {
     }
 
 
-    public int getId() {
+    int getId() {
         return id;
     }
 
