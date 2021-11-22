@@ -3,25 +3,27 @@ package com.example.Parking.reservation;
 
 import com.example.Parking.customer.Customer;
 import com.example.Parking.spot.Spot;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 @Entity
-@Table(name = "reservation")
+@Valid
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @ManyToOne
-    @JoinColumn(name = "customer_id")
     private Customer customer;
-    @OneToOne(cascade = CascadeType.ALL)
-   // @JoinColumn(name = "spot_id", referencedColumnName = "id")
+    @OneToOne
+    @MapsId
     private Spot spot;
 
     public Reservation() {
     }
 
+    @JsonIgnore
     public int getId() {
         return id;
     }

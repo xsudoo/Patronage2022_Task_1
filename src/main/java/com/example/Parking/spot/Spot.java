@@ -2,25 +2,30 @@ package com.example.Parking.spot;
 
 
 import com.example.Parking.reservation.Reservation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 @Entity
+@Valid
 @Table(name = "spots")
 public class Spot {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int number;
     private int storey;
-    boolean isSpotForDisabled;
-    @OneToOne
+    private boolean isSpotForDisabled;
+    @OneToOne(mappedBy = "spot", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Reservation reservation;
 
     public Spot() {
     }
 
-    int getId() {
+    public int getId() {
         return id;
     }
 
@@ -55,4 +60,10 @@ public class Spot {
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
+
+    public void deleteReservation(){
+        this.reservation = null;
+    }
+
+
 }

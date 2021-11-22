@@ -20,7 +20,9 @@ public class CustomerService {
     }
 
     Customer addCustomer(Customer customer){
-        return customerRepository.save(customer);
+        if (customerRepository.findByName(customer.getName()) !=null){
+            throw new IllegalArgumentException("There is Customer with this name");
+        }else return customerRepository.save(customer);
     }
 
 
