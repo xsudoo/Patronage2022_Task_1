@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface SpotRepository extends JpaRepository<Spot, Integer> {
 
-    Spot findById (int id);
-    List<Spot> getAllByReservationCustomerName (String name);
+    Spot findById(int id);
+
+    List<Spot> getAllByReservationCustomerName(String name);
 }

@@ -16,18 +16,15 @@ public class SpotService {
         this.spotTransfer = spotTransfer;
     }
 
-    List<Spot> getAllSpots(){
+    List<Spot> getAllSpots() {
         return spotRepository.findAll();
     }
 
-    SpotDTO addSpot(SpotDTO spotDTO){
-        Spot spot = spotTransfer.toEntity(spotDTO);
-
-       // spotRepository.save(spot);
-        return spotTransfer.toDTO(spotRepository.save(spot));
+    Spot addSpot(Spot spot) {
+        return spotRepository.save(spot);
     }
 
-    Spot getById(int id){
+    Spot getById(int id) {
         return spotRepository.findById(id);
     }
 

@@ -42,15 +42,15 @@ public class Customer {
         this.name = name;
     }
 
-    public Set<Reservation> getReservationSet() {
+    Set<Reservation> getReservationSet() {
         return new HashSet<>(reservationSet);
     }
 
-    public void setReservationSet(Set<Reservation> reservationList) {
+    void setReservationSet(Set<Reservation> reservationList) {
         this.reservationSet = reservationList;
     }
 
-    public void addReservation(Reservation reservation) {
+    void addReservation(Reservation reservation) {
         if (reservationSet.contains(reservation)) {
             return;
         }
@@ -58,7 +58,7 @@ public class Customer {
         reservation.setCustomer(this);
     }
 
-    public void deleteReservation(Reservation reservation){
+    public void deleteReservation(Reservation reservation) {
         reservationSet.remove(reservation);
     }
 }

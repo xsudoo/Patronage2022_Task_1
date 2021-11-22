@@ -61,7 +61,7 @@ public class Spot {
         this.reservation = reservation;
     }
 
-    public void deleteReservation(){
+    public void deleteReservation() {
         this.reservation = null;
     }
 

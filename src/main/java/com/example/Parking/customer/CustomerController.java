@@ -1,6 +1,5 @@
 package com.example.Parking.customer;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,12 +17,12 @@ public class CustomerController {
     }
 
     @GetMapping
-    public List<Customer> getAllCustomer(){
+    public List<Customer> getAllCustomer() {
         return customerService.getAllCustomers();
     }
 
     @PostMapping
-    public Customer addCustomer(@RequestBody @Valid Customer customer){
+    public Customer addCustomer(@RequestBody @Valid Customer customer) {
         return customerService.addCustomer(customer);
     }
 }

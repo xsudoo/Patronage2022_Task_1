@@ -17,13 +17,18 @@ public class ReservationService {
 
 
     public List<Reservation> getAllReservation() {
+        System.out.println("weszlo");
         return reservationRepository.findAll();
     }
 
     public ReservationDTO addReservation(ReservationDTO reservationDTO) {
-        var reservation = reservationTransfer.toEntity(reservationDTO);
-        reservationRepository.save(reservation);
-        return reservationTransfer.toDTO(reservationRepository.save(reservation));
+        if(reservationRepository.getFirstBySpotId(reservationDTO.getSpotId()) != null){
+            throw new IllegalArgumentException("This spot is taken");
+        }else {
+            var reservation = reservationTransfer.toEntity(reservationDTO);
+            reservationRepository.save(reservation);
+            return reservationTransfer.toDTO(reservationRepository.save(reservation));
+        }
 
     }
 

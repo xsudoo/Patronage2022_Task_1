@@ -15,14 +15,14 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    List<Customer> getAllCustomers(){
+    List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
 
-    Customer addCustomer(Customer customer){
-        if (customerRepository.findByName(customer.getName()) !=null){
+    Customer addCustomer(Customer customer) {
+        if (customerRepository.findByName(customer.getName()) != null) {
             throw new IllegalArgumentException("There is Customer with this name");
-        }else return customerRepository.save(customer);
+        } else return customerRepository.save(customer);
     }
 
 

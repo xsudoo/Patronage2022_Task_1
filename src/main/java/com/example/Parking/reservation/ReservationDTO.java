@@ -7,15 +7,9 @@ public class ReservationDTO {
     public ReservationDTO() {
     }
 
-    /*public ReservationDTO(Reservation reservation){
-        this.spotId = reservation.getSpot().getId();
-        this.customerId = reservation.getCustomer().getId();
-    }*/
-
     public int getSpotId() {
         return spotId;
     }
-
 
     public void setSpotId(int spotId) {
         this.spotId = spotId;

@@ -4,7 +4,6 @@ public class SpotDTO {
     private int number;
     private int storey;
     private boolean isSpotForDisabled;
-    //private int reservationId;
 
     public SpotDTO() {
     }
@@ -32,12 +31,4 @@ public class SpotDTO {
     public void setSpotForDisabled(boolean spotForDisabled) {
         isSpotForDisabled = spotForDisabled;
     }
-
-   /* public int getReservationId() {
-        return reservationId;
-    }
-
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
-    }*/
 }

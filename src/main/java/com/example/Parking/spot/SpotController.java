@@ -16,26 +16,27 @@ public class SpotController {
     }
 
     @GetMapping
-    List<Spot> getAllSpots(){
+    List<Spot> getAllSpots() {
         return spotService.getAllSpots();
     }
 
     @GetMapping(params = "name")
-    List<Spot> getAllSpotsByCustomer(@RequestParam String name){
+    List<Spot> getAllSpotsByCustomer(@RequestParam String name) {
         return spotService.getAllSpotsByCustomer(name);
     }
+
     @GetMapping("/free")
-    List<Spot> getAllFreeSpots(){
+    List<Spot> getAllFreeSpots() {
         return spotService.getAllFreeSpots();
     }
 
     @PostMapping
-    SpotDTO addSpot(@RequestBody @Valid SpotDTO spotDTO){
-        return spotService.addSpot(spotDTO);
+    Spot addSpot(@RequestBody @Valid Spot spot) {
+        return spotService.addSpot(spot);
     }
 
     @GetMapping("/{id}")
-    Spot getById(@PathVariable int id){
+    Spot getById(@PathVariable int id) {
         return spotService.getById(id);
     }
 }

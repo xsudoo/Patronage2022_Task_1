@@ -1,19 +1,16 @@
 package com.example.Parking.spot;
 
-import com.example.Parking.reservation.ReservationRepository;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SpotTransfer {
 
-    final private ReservationRepository reservationRepository;
 
-    public SpotTransfer(ReservationRepository reservationRepository) {
-        this.reservationRepository = reservationRepository;
+    public SpotTransfer() {
     }
 
     SpotDTO toDTO(Spot spot) {
-        SpotDTO spotDTO = new SpotDTO();
+        var spotDTO = new SpotDTO();
 
         spotDTO.setNumber(spot.getNumber());
         spotDTO.setStorey(spot.getStorey());
@@ -23,7 +20,7 @@ public class SpotTransfer {
     }
 
     Spot toEntity(SpotDTO spotDTO) {
-        Spot spot = new Spot();
+        var spot = new Spot();
 
         spot.setNumber(spotDTO.getNumber());
         spot.setStorey(spotDTO.getStorey());

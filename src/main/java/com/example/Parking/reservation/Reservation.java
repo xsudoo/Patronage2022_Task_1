@@ -24,7 +24,7 @@ public class Reservation {
     }
 
     @JsonIgnore
-    public int getId() {
+    int getId() {
         return id;
     }
 
@@ -40,7 +40,7 @@ public class Reservation {
         return spot;
     }
 
-    public void setSpot(Spot spot) {
+    void setSpot(Spot spot) {
         this.spot = spot;
     }
 }

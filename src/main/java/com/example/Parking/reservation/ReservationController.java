@@ -18,22 +18,22 @@ public class ReservationController {
     }
 
     @GetMapping
-    public List<Reservation> getAllReservation(){
+    public List<Reservation> getAllReservation() {
         return reservationService.getAllReservation();
     }
 
     @GetMapping(params = "name")
-    public List<Reservation> getAllByCustomer(@RequestParam String name){
+    public List<Reservation> getAllByCustomer(@RequestParam String name) {
         return reservationService.getAllByCustomer(name);
     }
 
     @PostMapping
-    public ReservationDTO addReservation(@RequestBody @Valid ReservationDTO reservationDTO){
+    public ReservationDTO addReservation(@RequestBody @Valid ReservationDTO reservationDTO) {
         return reservationService.addReservation(reservationDTO);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ReservationDTO> delete(@PathVariable int id){
+    public ResponseEntity<ReservationDTO> delete(@PathVariable int id) {
         reservationService.removeReservation(id);
         return ResponseEntity.noContent().build();
     }

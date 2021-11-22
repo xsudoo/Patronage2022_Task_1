@@ -16,8 +16,8 @@ public class ReservationTransfer {
         this.customerRepository = customerRepository;
     }
 
-    ReservationDTO toDTO(Reservation reservation){
-        ReservationDTO reservationDTO = new ReservationDTO();
+    ReservationDTO toDTO(Reservation reservation) {
+        var reservationDTO = new ReservationDTO();
 
         reservationDTO.setSpotId(reservation.getSpot().getId());
         reservationDTO.setCustomerId(reservation.getCustomer().getId());
@@ -25,8 +25,8 @@ public class ReservationTransfer {
         return reservationDTO;
     }
 
-    Reservation toEntity(ReservationDTO reservationDTO){
-        Reservation reservation = new Reservation();
+    Reservation toEntity(ReservationDTO reservationDTO) {
+        var reservation = new Reservation();
         reservation.setSpot(spotRepository.findById(reservationDTO.getSpotId()));
         reservation.setCustomer(customerRepository.findById(reservationDTO.getCustomerId()));
         return reservation;
