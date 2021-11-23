@@ -19,7 +19,7 @@ public class Customer {
     @JsonIgnore
     private int id;
     @NotBlank(message = "Customer name must be not null and not empty")
-    @Size(min = 2, message = "Name to shor")
+    @Size(min = 3, message = "Name to short")
     @Size(max = 20, message = "Name to long")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
