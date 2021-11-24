@@ -16,6 +16,7 @@ public class CustomerErrorHandler {
 
     @ExceptionHandler(value = IllegalArgumentException.class)
     public ResponseEntity<Object> IllegalArgumentException(IllegalArgumentException e) {
+        System.out.println("Error");
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 

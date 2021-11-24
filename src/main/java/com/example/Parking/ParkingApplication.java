@@ -27,7 +27,7 @@ public class ParkingApplication implements ApplicationListener<ContextRefreshedE
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		var customer = new Customer();
+		/*var customer = new Customer();
 		customer.setName("Jhon");
 		var spot = new Spot();
 		spot.setNumber(1);
@@ -35,6 +35,6 @@ public class ParkingApplication implements ApplicationListener<ContextRefreshedE
 		spot.setSpotForDisabled(false);
 
 		customerRepository.save(customer);
-		spotRepository.save(spot);
+		spotRepository.save(spot);*/
 	}
 }

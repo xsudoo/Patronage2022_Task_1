@@ -9,11 +9,9 @@ import java.util.stream.Collectors;
 public class SpotService {
 
     final private SpotRepository spotRepository;
-    final private SpotTransfer spotTransfer;
 
-    public SpotService(SpotRepository spotRepository, SpotTransfer spotTransfer) {
+    public SpotService(SpotRepository spotRepository) {
         this.spotRepository = spotRepository;
-        this.spotTransfer = spotTransfer;
     }
 
     List<Spot> getAllSpots() {
@@ -21,7 +19,10 @@ public class SpotService {
     }
 
     Spot addSpot(Spot spot) {
-        return spotRepository.save(spot);
+        if(spotRepository.findByNumberAndStorey(spot.getNumber(), spot.getStorey()) != null ){
+            System.out.println(spot.getReservation());
+            throw new IllegalArgumentException("There is spot with this number and storey");
+        }else return spotRepository.save(spot);
     }
 
     Spot getById(int id) {
