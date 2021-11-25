@@ -10,9 +10,7 @@ public interface SpotRepository extends JpaRepository<Spot, Integer> {
 
     List<Spot> getAllByReservationCustomerName(String name);
 
-    Spot findByNumber(int number);
 
     Spot findByNumberAndStorey (int number, int storey);
 
-    Spot findByStorey(int storey);
 }

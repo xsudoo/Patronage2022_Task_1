@@ -50,8 +50,7 @@ class SpotServiceTest {
         //given
         var spot = prepareSingleMockData();
         //when
-        when(spotRepository.findByNumber(spot.getNumber())).thenReturn(spot);
-        when(spotRepository.findByStorey(spot.getStorey())).thenReturn(spot);
+        when(spotRepository.findByNumberAndStorey(spot.getNumber(), spot.getStorey())).thenReturn(spot);
         //then
         assertThrows(IllegalArgumentException.class, () -> spotService.addSpot(spot));
     }
