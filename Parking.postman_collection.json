@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "a56ad449-9b05-4c25-90c9-56320e549a7e",
+		"name": "Parking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"adam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all customer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/customer",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add spot",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number\":1,\r\n    \"storey\":1,\r\n    \"isSpotForDisabled\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/spot",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get spot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/spot",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get free spots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/spot/free",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spot",
+						"free"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get spot by customer name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/spot?name=Jhon",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spot"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Jhon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"spotId\":1,\r\n    \"customerId\":1\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/reservation",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get reservation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number\": 1,\r\n    \"storey\": 1,\r\n    \"spotForDisabled\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/reservation",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete reservation by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reservation/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservation",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get reservation by customer name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/reservation?name=Jhon",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reservation"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Jhon"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
