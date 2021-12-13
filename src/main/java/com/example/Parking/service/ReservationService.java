@@ -1,7 +1,11 @@
-package com.example.Parking.reservation;
+package com.example.Parking.service;
 
-import com.example.Parking.customer.CustomerRepository;
-import com.example.Parking.spot.SpotRepository;
+import com.example.Parking.dto.ReservationDTO;
+import com.example.Parking.model.Reservation;
+import com.example.Parking.repository.CustomerRepository;
+import com.example.Parking.repository.ReservationRepository;
+import com.example.Parking.repository.SpotRepository;
+import com.example.Parking.transfer.ReservationTransfer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,7 +45,7 @@ public class ReservationService {
 
     }
 
-    void removeReservation(int id) {
+    public void removeReservation(int id) {
         if (reservationRepository.findById(id) == null) {
             throw new IllegalArgumentException("There is no such reservation");
         } else {

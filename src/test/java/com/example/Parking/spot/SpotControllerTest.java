@@ -1,6 +1,8 @@
 package com.example.Parking.spot;
 
-import com.example.Parking.reservation.Reservation;
+import com.example.Parking.model.Spot;
+import com.example.Parking.model.Reservation;
+import com.example.Parking.service.SpotService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

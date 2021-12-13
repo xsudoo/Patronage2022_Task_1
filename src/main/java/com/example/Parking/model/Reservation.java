@@ -1,8 +1,6 @@
-package com.example.Parking.reservation;
+package com.example.Parking.model;
 
 
-import com.example.Parking.customer.Customer;
-import com.example.Parking.spot.Spot;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -10,7 +8,9 @@ import javax.validation.Valid;
 
 @Entity
 @Valid
+
 public class Reservation {
+    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -23,8 +23,7 @@ public class Reservation {
     public Reservation() {
     }
 
-    @JsonIgnore
-    int getId() {
+    public int getId() {
         return id;
     }
 
@@ -40,7 +39,7 @@ public class Reservation {
         return spot;
     }
 
-    void setSpot(Spot spot) {
+    public void setSpot(Spot spot) {
         this.spot = spot;
     }
 }

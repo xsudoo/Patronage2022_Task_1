@@ -1,7 +1,6 @@
-package com.example.Parking.spot;
+package com.example.Parking.model;
 
 
-import com.example.Parking.reservation.Reservation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -53,7 +52,8 @@ public class Spot {
         isSpotForDisabled = spotForDisabled;
     }
 
-    Reservation getReservation() {
+    @JsonIgnore
+    public Reservation getReservation() {
         return reservation;
     }
 

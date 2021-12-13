@@ -1,4 +1,4 @@
-package com.example.Parking.reservation;
+package com.example.Parking.dto;
 
 public class ReservationDTO {
     private int spotId;

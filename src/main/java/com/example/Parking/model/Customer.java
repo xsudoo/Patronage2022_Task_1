@@ -1,6 +1,5 @@
-package com.example.Parking.customer;
+package com.example.Parking.model;
 
-import com.example.Parking.reservation.Reservation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -23,7 +22,6 @@ public class Customer {
     @Size(max = 20, message = "Name to long")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
-    @JsonIgnore
     private Set<Reservation> reservationSet = new HashSet<>();
 
 

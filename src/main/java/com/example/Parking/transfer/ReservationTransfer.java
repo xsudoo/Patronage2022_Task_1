@@ -1,7 +1,9 @@
-package com.example.Parking.reservation;
+package com.example.Parking.transfer;
 
-import com.example.Parking.customer.CustomerRepository;
-import com.example.Parking.spot.SpotRepository;
+import com.example.Parking.dto.ReservationDTO;
+import com.example.Parking.model.Reservation;
+import com.example.Parking.repository.CustomerRepository;
+import com.example.Parking.repository.SpotRepository;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,7 +18,7 @@ public class ReservationTransfer {
         this.customerRepository = customerRepository;
     }
 
-    ReservationDTO toDTO(Reservation reservation) {
+    public ReservationDTO toDTO(Reservation reservation) {
         var reservationDTO = new ReservationDTO();
 
         reservationDTO.setSpotId(reservation.getSpot().getId());
@@ -25,7 +27,7 @@ public class ReservationTransfer {
         return reservationDTO;
     }
 
-    Reservation toEntity(ReservationDTO reservationDTO) {
+    public Reservation toEntity(ReservationDTO reservationDTO) {
         var reservation = new Reservation();
         reservation.setSpot(spotRepository.findById(reservationDTO.getSpotId()));
         reservation.setCustomer(customerRepository.findById(reservationDTO.getCustomerId()));

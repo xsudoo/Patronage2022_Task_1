@@ -1,4 +1,4 @@
-package com.example.Parking.spot;
+package com.example.Parking.dto;
 
 public class SpotDTO {
     private int number;

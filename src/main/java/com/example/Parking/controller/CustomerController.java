@@ -1,5 +1,7 @@
-package com.example.Parking.customer;
+package com.example.Parking.controller;
 
+import com.example.Parking.service.CustomerService;
+import com.example.Parking.model.Customer;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

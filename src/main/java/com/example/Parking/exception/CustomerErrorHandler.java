@@ -1,4 +1,4 @@
-package com.example.Parking.customer;
+package com.example.Parking.exception;
 
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;

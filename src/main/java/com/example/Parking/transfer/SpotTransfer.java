@@ -1,5 +1,7 @@
-package com.example.Parking.spot;
+package com.example.Parking.transfer;
 
+import com.example.Parking.dto.SpotDTO;
+import com.example.Parking.model.Spot;
 import org.springframework.stereotype.Component;
 
 @Component
