@@ -1,6 +1,7 @@
 package com.example.Parking.service;
 
 
+import com.example.Parking.dto.CustomerDTO;
 import com.example.Parking.model.Customer;
 import com.example.Parking.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -21,10 +22,11 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Customer addCustomer(Customer customer) {
-        if (customerRepository.findByName(customer.getName()) != null) {
+    public CustomerDTO addCustomer(CustomerDTO customerDTO) {
+        if (customerRepository.findByName(customerDTO.getName()) != null) {
             throw new IllegalArgumentException("There is Customer with this name");
-        } else return customerRepository.save(customer);
+
+        } else return new CustomerDTO(customerRepository.save(customerDTO.toEntity()));
     }
 
 
