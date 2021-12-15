@@ -2,10 +2,16 @@ package com.example.Parking.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.Valid;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Valid
 @Table(name = "spots")
@@ -21,44 +27,9 @@ public class Spot {
     @PrimaryKeyJoinColumn
     private Reservation reservation;
 
-    public Spot() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public int getStorey() {
-        return storey;
-    }
-
-    public void setStorey(int storey) {
-        this.storey = storey;
-    }
-
-    public boolean isSpotForDisabled() {
-        return isSpotForDisabled;
-    }
-
-    public void setSpotForDisabled(boolean spotForDisabled) {
-        isSpotForDisabled = spotForDisabled;
-    }
-
     @JsonIgnore
     public Reservation getReservation() {
         return reservation;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
     }
 
     public void deleteReservation() {
