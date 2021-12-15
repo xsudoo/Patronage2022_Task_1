@@ -21,9 +21,9 @@ public class SpotService {
     }
 
     public Spot addSpot(Spot spot) {
-        if(spotRepository.findByNumberAndStorey(spot.getNumber(), spot.getStorey()) != null ){
+        if (spotRepository.findByNumberAndStorey(spot.getNumber(), spot.getStorey()) != null) {
             throw new IllegalArgumentException("There is spot with this number and storey");
-        }else return spotRepository.save(spot);
+        } else return spotRepository.save(spot);
     }
 
     public Spot getById(int id) {

@@ -17,7 +17,7 @@ public class CustomerDTO {
         return name;
     }
 
-    public Customer toEntity(){
+    public Customer toEntity() {
         var customer = new Customer();
         customer.setName(this.name);
         return customer;
