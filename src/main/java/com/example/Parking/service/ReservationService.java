@@ -1,7 +1,11 @@
-package com.example.Parking.reservation;
+package com.example.Parking.service;
 
-import com.example.Parking.customer.CustomerRepository;
-import com.example.Parking.spot.SpotRepository;
+import com.example.Parking.dto.ReservationDTO;
+import com.example.Parking.model.Reservation;
+import com.example.Parking.repository.CustomerRepository;
+import com.example.Parking.repository.ReservationRepository;
+import com.example.Parking.repository.SpotRepository;
+import com.example.Parking.mapper.ReservationMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,13 +14,11 @@ import java.util.List;
 public class ReservationService {
 
     final private ReservationRepository reservationRepository;
-    final private ReservationTransfer reservationTransfer;
     final private SpotRepository spotRepository;
     final private CustomerRepository customerRepository;
 
-    public ReservationService(ReservationRepository reservationRepository, ReservationTransfer reservationTransfer, SpotRepository spotRepository, CustomerRepository customerRepository) {
+    public ReservationService(ReservationRepository reservationRepository, SpotRepository spotRepository, CustomerRepository customerRepository) {
         this.reservationRepository = reservationRepository;
-        this.reservationTransfer = reservationTransfer;
         this.spotRepository = spotRepository;
         this.customerRepository = customerRepository;
     }
@@ -34,14 +36,16 @@ public class ReservationService {
         } else if (customerRepository.findById(reservationDTO.getCustomerId()) == null) {
             throw new IllegalArgumentException("There is no such Customer");
         } else {
-            var reservation = reservationTransfer.toEntity(reservationDTO);
+            var reservation = ReservationMapper.toEntity(reservationDTO);
+            reservation.setSpot(spotRepository.findById(reservationDTO.getSpotId()));
+            reservation.setCustomer(customerRepository.findById(reservationDTO.getCustomerId()));
             reservationRepository.save(reservation);
-            return reservationTransfer.toDTO(reservationRepository.save(reservation));
+            return ReservationMapper.toDTO(reservationRepository.save(reservation));
         }
 
     }
 
-    void removeReservation(int id) {
+    public void removeReservation(int id) {
         if (reservationRepository.findById(id) == null) {
             throw new IllegalArgumentException("There is no such reservation");
         } else {

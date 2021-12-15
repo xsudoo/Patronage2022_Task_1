@@ -1,6 +1,9 @@
 package com.example.Parking.spot;
 
-import com.example.Parking.reservation.Reservation;
+import com.example.Parking.model.Spot;
+import com.example.Parking.repository.SpotRepository;
+import com.example.Parking.model.Reservation;
+import com.example.Parking.service.SpotService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

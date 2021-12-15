@@ -1,7 +1,9 @@
-package com.example.Parking.customer;
+package com.example.Parking.model;
 
-import com.example.Parking.reservation.Reservation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -10,6 +12,9 @@ import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "customers")
 @Valid
@@ -23,31 +28,10 @@ public class Customer {
     @Size(max = 20, message = "Name to long")
     private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
-    @JsonIgnore
     private Set<Reservation> reservationSet = new HashSet<>();
-
-
-    public Customer() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     Set<Reservation> getReservationSet() {
         return new HashSet<>(reservationSet);
-    }
-
-    void setReservationSet(Set<Reservation> reservationList) {
-        this.reservationSet = reservationList;
     }
 
     void addReservation(Reservation reservation) {

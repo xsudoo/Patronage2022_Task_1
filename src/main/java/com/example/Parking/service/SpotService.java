@@ -1,5 +1,7 @@
-package com.example.Parking.spot;
+package com.example.Parking.service;
 
+import com.example.Parking.model.Spot;
+import com.example.Parking.repository.SpotRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,18 +16,17 @@ public class SpotService {
         this.spotRepository = spotRepository;
     }
 
-    List<Spot> getAllSpots() {
+    public List<Spot> getAllSpots() {
         return spotRepository.findAll();
     }
 
-    Spot addSpot(Spot spot) {
-        if(spotRepository.findByNumberAndStorey(spot.getNumber(), spot.getStorey()) != null ){
-            System.out.println(spot.getReservation());
+    public Spot addSpot(Spot spot) {
+        if (spotRepository.findByNumberAndStorey(spot.getNumber(), spot.getStorey()) != null) {
             throw new IllegalArgumentException("There is spot with this number and storey");
-        }else return spotRepository.save(spot);
+        } else return spotRepository.save(spot);
     }
 
-    Spot getById(int id) {
+    public Spot getById(int id) {
         return spotRepository.findById(id);
     }
 

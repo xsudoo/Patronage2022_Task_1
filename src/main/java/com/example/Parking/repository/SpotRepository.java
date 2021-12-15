@@ -1,5 +1,6 @@
-package com.example.Parking.spot;
+package com.example.Parking.repository;
 
+import com.example.Parking.model.Spot;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

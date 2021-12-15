@@ -1,5 +1,8 @@
-package com.example.Parking.reservation;
+package com.example.Parking.controller;
 
+import com.example.Parking.dto.ReservationDTO;
+import com.example.Parking.model.Reservation;
+import com.example.Parking.service.ReservationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

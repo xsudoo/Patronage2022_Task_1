@@ -1,5 +1,8 @@
-package com.example.Parking.customer;
+package com.example.Parking.controller;
 
+import com.example.Parking.dto.CustomerDTO;
+import com.example.Parking.model.Customer;
+import com.example.Parking.service.CustomerService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,7 +25,7 @@ public class CustomerController {
     }
 
     @PostMapping
-    public Customer addCustomer(@RequestBody @Valid Customer customer) {
-        return customerService.addCustomer(customer);
+    public CustomerDTO addCustomer(@RequestBody @Valid CustomerDTO customerDTO) {
+        return customerService.addCustomer(customerDTO);
     }
 }
